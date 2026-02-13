@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: "MFA for users"
+
+Resources:
+  EnforceRootMFA:  #name of resource
+    Type: AWS::IAM::UserPolicy
+    Properties:
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement: 
+          - Sid: DenyUserWithoutMFA 
+            Effect: Deny
+            NotAction:
+              - iam:CreateVirtualMFADevice
+              - iam:EnableMFADevice
+              - iam:ListMFADevices
+              - iam:ListVirtualMFADevices
+            Resource: "*"
+      PolicyName: EnforceMFA
+      UserName: PerchJames
