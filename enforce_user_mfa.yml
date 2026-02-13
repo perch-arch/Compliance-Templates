@@ -17,4 +17,4 @@ Resources:
               - iam:ListVirtualMFADevices
             Resource: "*"
       PolicyName: EnforceMFA
-      UserName: PerchJames
+      UserName: #provide username here
