@@ -15,9 +15,13 @@ Resources:
               - iam:EnableMFADevice
               - iam:ListMFADevices
               - iam:ListVirtualMFADevices
+              - sts:GetSessionToken
             Resource: "*"
             Condition:
               Bool:
                 aws:MultiFactorAuthPresent: "false"
       PolicyName: EnforceMFA
       UserName: #provide username here
+
+
+      
